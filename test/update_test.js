@@ -24,7 +24,7 @@ describe("update the user",()=>{
   {
   		operation.then(()=>{
   							User.find({name:'Heet'}).then((user)=>{
-  				 	assert(user[0].postCount==1);
+  				 	assert(user[0].likes==1);
   				 	
   				 });
   				 done();
@@ -44,7 +44,7 @@ describe("update the user",()=>{
 		});
 	it("should update the user",(done)=>{
 		
-		assertPost(User.findOneAndUpdate({name:'Heet'},{$inc: {postCount:1}}),done);
+		assertPost(User.findOneAndUpdate({name:'Heet'},{$inc: {likes:1}}),done);
 		
 		});
 

@@ -12,9 +12,12 @@ const UserSchema=new Schema(
 									}
 
 								},
-								postCount:Number,
+								likes:Number,
 								post:[PostSchema]
 							}
 							);
+UserSchema.virtual('postCount').get(function (){
+return this.post.length;
+});
 const User=mongoose.model('user',UserSchema);
 module.exports=User;
